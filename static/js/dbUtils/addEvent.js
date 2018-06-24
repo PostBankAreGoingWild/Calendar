@@ -29,9 +29,9 @@
 								</div>
 							</div>
 							<script type="text/javascript">
-								$(function () {
+								/*$(function () {
 									$('#datetimepicker1').datetimepicker();
-								});
+								});*/
 							</script>
 						</div>
 					</div>
@@ -47,9 +47,9 @@
 										</span>
 									</div>
 							<script type="text/javascript">
-								$(function () {
+								/*$(function () {
 									$('#datetimepicker2').datetimepicker();
-								});
+								});*/
 							</script>
 						</div>
 					</div>
