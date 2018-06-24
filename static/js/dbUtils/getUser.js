@@ -8,7 +8,8 @@ $(document).ready(function () {
         },
         async: false,
         success: function (data) {
-            if (data !== undefined) {
+            console.log(data);
+            if (data) {
                 $("#login").hide();
                 $("#logout").show();
                 $("#user").html(data);

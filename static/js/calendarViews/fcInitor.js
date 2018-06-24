@@ -1,4 +1,5 @@
-﻿$(document).ready(function () {
+﻿window.elements = {};
+$(document).ready(function () {
     let today = new Date();
     $('#calendar').fullCalendar({
         locale: 'bg',
@@ -40,6 +41,7 @@
             $("#calendar").show();
         },
         eventRender: function (event, element) {
+            window.elements[element] = event;
             if (event.type === 4) {
                 element.css("background-color", "red");
                 element.css("color", "white");
@@ -58,8 +60,8 @@
                 element.css("background-color", "cyan");
 
             element.on('click', function () {
-                $("#title").html(event.title);
-                $("#body").html(event.description);
+                $("#title").html(window.elements[this].title);
+                $("#body").html(window.elements[this].description);
                 $(".modal").show();
             });
         }
