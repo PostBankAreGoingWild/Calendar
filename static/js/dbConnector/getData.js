@@ -83,7 +83,7 @@ const dbMediator = {
     useUserEvents: function (handler) {
         $.ajax({
             dataType: "json",
-            url: "http://192.168.166.223:3000/events/get",
+            url: "/events/get",
             data: {},
             success: function (data) {
                 handler(data);
@@ -92,7 +92,7 @@ const dbMediator = {
     },
     useUserEventsByInterval: function (start, end, handler) {
         $.ajax({
-            url: 'http://192.168.166.223:3000/event',
+            url: '/event',
             dataType: 'application/json',
             contentType: "application/x-www-form-urlencoded",
             crossDomain: true,

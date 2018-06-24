@@ -21,18 +21,22 @@ $(document).ready(function () {
         eventLimit: true, // allow "more" link when too many events
         events: function (start, end, timezone, callback) {
             //dbMediator.useFakeEvents(callback);/*
-            $.ajax({
-                url: '192.168.166.223:3000/event',
+            let request = $.ajax({
+                url: '/event',
                 dataType: 'application/json',
                 contentType: "application/x-www-form-urlencoded; charset=utf-8",
                 data: {
                     start: start.toISOString(),
                     end: end.toISOString()
                 },
-                success: function (events) {
-                    callback(events);
-                }
+
+        async: false,
             });//*/
+            window.PARAMETER=request;
+            console.log(request);
+            console.log(window.PARAMETER.responseText);
+            //console.log(JSON.parse(request.responseText));
+            //callback(JSON.parse(request.responseText));
         },
         eventRender: function (event, element) {
             if (event.type === 4) {
