@@ -61,7 +61,7 @@
 				<option value = "5">Рожден ден</option>
 				<option value = "2">Имен ден</option>
 				<option value = "3">Значим международен ден</option>
-				<option value = "4">Оферти и промоции</option>
+				<option value = "5">Други</option>
             </select>
 <br><hr>
 			<div class = "d-flex justify-content-center">
