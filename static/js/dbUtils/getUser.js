@@ -1,6 +1,6 @@
 $(document).ready(function () {
     $.ajax({
-        url: '/event',
+        url: '/user/email',
         dataType: 'application/json',
         xhrFields: { withCredentials: true },
         contentType: "application/x-www-form-urlencoded",
