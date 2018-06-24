@@ -1,4 +1,21 @@
-﻿window.elements = {};
+﻿//window.elements = {};
+
+function formatDate(datee) {
+    let date = new Date(datee);
+    var monthNames = [
+        "January", "February", "March",
+        "April", "May", "June", "July",
+        "August", "September", "October",
+        "November", "December"
+    ];
+
+    var day = date.getDate();
+    var monthIndex = date.getMonth();
+    var year = date.getFullYear();
+
+    return day + ' ' + monthNames[monthIndex] + ' ' + year + ' ' + date.getHours() + ':' + date.getMinutes();
+}
+
 $(document).ready(function () {
     let today = new Date();
     $('#calendar').fullCalendar({
@@ -36,12 +53,16 @@ $(document).ready(function () {
             });
             console.log(request);
             console.log(JSON.parse(request.responseText));
-            callback(JSON.parse(request.responseText));
+            let asdf = JSON.parse(request.responseText);
+            for (let i in asdf) {
+                asdf[i].title = asdf[i].name;
+            }
+            callback(asdf);
             $("#spinner").hide();
             $("#calendar").show();
         },
         eventRender: function (event, element) {
-            window.elements[element] = event;
+            //window.elements[element] = event;
             if (event.type === 4) {
                 element.css("background-color", "red");
                 element.css("color", "white");
@@ -50,7 +71,7 @@ $(document).ready(function () {
                 element.css("background-color", "green");
                 element.css("color", "white");
             }
-            else if(event.type === 2) {
+            else if (event.type === 2) {
                 element.css("background-color", "blue");
                 element.css("color", "white");
             }
@@ -60,8 +81,8 @@ $(document).ready(function () {
                 element.css("background-color", "cyan");
 
             element.on('click', function () {
-                $("#title").html(window.elements[this].title);
-                $("#body").html(window.elements[this].description);
+                $("#title").html(event.title);
+                $("#body").html(event.descritption + "<br>" + formatDate(event.start) + ' - ' + formatDate(event.end));
                 $(".modal").show();
             });
         }
