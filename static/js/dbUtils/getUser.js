@@ -1,18 +1,19 @@
 $(document).ready(function () {
     $.ajax({
         url: '/user/email',
-        dataType: 'application/json',
         xhrFields: { withCredentials: true },
-        contentType: "application/x-www-form-urlencoded",
-        data: {
-        },
         async: false,
         success: function (data) {
+<<<<<<< HEAD
             console.log(data);
             if (data) {
+=======
+            console.log("USER:",data);
+            if (data !== undefined) {
+>>>>>>> 9de29217696b602d079cba369db83523b5694207
                 $("#login").hide();
                 $("#logout").show();
-                $("#user").html(data);
+                $("#user").html(', ' + data);
             }
         }
     });
