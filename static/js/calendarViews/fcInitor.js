@@ -57,9 +57,9 @@
             else if (event.type === 0)
                 element.css("background-color", "cyan");
 
-            element.click(function () {
-                $(".modal h5").html(event.title);
-                $(".modal .modal-body").html(event.description);
+            element.on('click', function () {
+                $("#title").html(event.title);
+                $("body").html(event.description);
                 $(".modal").show();
             });
         }
