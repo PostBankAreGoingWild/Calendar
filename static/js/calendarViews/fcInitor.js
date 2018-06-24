@@ -59,7 +59,7 @@
 
             element.on('click', function () {
                 $("#title").html(event.title);
-                $("body").html(event.description);
+                $("#body").html(event.description);
                 $(".modal").show();
             });
         }
