@@ -2,6 +2,7 @@ $(document).ready(function () {
     $.ajax({
         url: '/event',
         dataType: 'application/json',
+        xhrFields: { withCredentials: true },
         contentType: "application/x-www-form-urlencoded",
         data: {
         },

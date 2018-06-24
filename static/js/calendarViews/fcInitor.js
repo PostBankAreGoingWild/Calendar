@@ -24,6 +24,7 @@
             //dbMediator.useFakeEvents(callback);/*
             let request = $.ajax({
                 url: '/event',
+                xhrFields: { withCredentials: true },
                 dataType: 'application/json',
                 contentType: "application/x-www-form-urlencoded",
                 data: {
