@@ -1,6 +1,7 @@
-$(document).ready(function () {
+﻿$(document).ready(function () {
     let today = new Date();
     $('#calendar').fullCalendar({
+        locale: 'bg',
         header: {
             left: 'prev,next today',
             center: 'title',
@@ -11,7 +12,7 @@ $(document).ready(function () {
             agendaThreeDay: {
                 type: 'agenda',
                 duration: { days: 3 },
-                buttonText: '3 day'
+                buttonText: '3 дни'
             }
         },
 
@@ -24,19 +25,18 @@ $(document).ready(function () {
             let request = $.ajax({
                 url: '/event',
                 dataType: 'application/json',
-                contentType: "application/x-www-form-urlencoded; charset=utf-8",
+                contentType: "application/x-www-form-urlencoded",
                 data: {
                     start: start.toISOString(),
                     end: end.toISOString()
                 },
-
-        async: false,
-            });//*/
-            window.PARAMETER=request;
+                async: false
+            });
             console.log(request);
-            console.log(window.PARAMETER.responseText);
-            //console.log(JSON.parse(request.responseText));
-            //callback(JSON.parse(request.responseText));
+            console.log(JSON.parse(request.responseText));
+            callback(JSON.parse(request.responseText));
+            $("#spinner").hide();
+            $("#calendar").show();
         },
         eventRender: function (event, element) {
             if (event.type === 4) {
